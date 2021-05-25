@@ -10,9 +10,7 @@
 
  class Div : public Base {
     public:
-        Div(Base* lhs, Base* rhs) : left(lhs), right(rhs) { 
-		if (rhs->evaluate() == 0)
-	}
+        Div(Base* lhs, Base* rhs) : left(lhs), right(rhs) { }
        ~Div () {
 		delete left;
 		delete right;
@@ -20,7 +18,7 @@
 	 virtual double evaluate() { 
 		double lhse = left->evaluate();
 		double rhse = right->evaluate();
-		if (rhse->evaluate() == 0)
+		if (rhse == 0)
 			return 0;
 		return (lhse/rhse); 
 	}

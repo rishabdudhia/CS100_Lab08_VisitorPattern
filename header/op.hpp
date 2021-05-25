@@ -19,7 +19,7 @@ class Op : public Base {
 		return ss.str();
 	    }
 
-	int number_of_children() P
+	int number_of_children() {
 		return 0;
 	}
 
