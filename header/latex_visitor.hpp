@@ -95,7 +95,7 @@ public:
 		string PrintLaTeX(Base* ptr){
 			Iterator* x = new Iterator(ptr);
 			for(x; !x->is_done();  x->next()){
-				(x->current_node())->accept(this, x->current_index());
+				(x->current_node())->check(this, x->current_index());
 			}
 			delete x;
 			return "$" + this->gettree() + "$";
