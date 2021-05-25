@@ -18,7 +18,10 @@
 	 virtual double evaluate() { 
 		double lhse = left->evaluate();
 		double rhse = right->evaluate();
-	return (lhse/rhse); }
+		if (rhse == 0)
+			return 0;
+		return (lhse/rhse); 
+	}
 
         virtual string stringify() { 
 		string rhss = right->stringify();
@@ -26,7 +29,28 @@
 
 	ostringstream ss;
         ss << setprecision(8) << noshowpoint << '(' << lhss << '/' << noshowpoint << rhss << ')';
-	return  ss.str(); }
+	return  ss.str(); 
+	}
+
+	int number_of_children() {
+		return 2;
+	}
+	Base* get_child(int i){
+		if (i == 0)
+			return left;
+		else if (i == 1)
+			return right;
+		else
+			return nullptr;
+	}
+	void check(Visitor* v, int i){
+		if (i == 0)
+			return v->visit_div_begin(this);
+		else if (i == 1)
+			return v->visit_div_middle(this);
+		else
+			return v->visit_div_end(this);
+	}
 
     private: 
 	Base* left;
