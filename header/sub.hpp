@@ -22,6 +22,7 @@ class Sub : public Base {
                 ss << setprecision(8) << noshowpoint << '(' << left->stringify() << '-' << noshowpoint << right->stringify() << ')';
                 return ss.str();
             }
+	
     private:
         Base* left;
         Base* right;
