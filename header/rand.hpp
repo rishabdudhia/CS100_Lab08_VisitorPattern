@@ -20,6 +20,18 @@ class Rand : public Base{
 			ostringstream ss;
 			ss << setprecision(8) << noshowpoint << randvalue;
 		}
+		
+		int number_of_children() {
+			return 0;
+		}
+
+		Base* get_child(int i) {
+			return nullptr;
+		}
+		
+		void check(Visitor* v, int i) {
+			return v->visit_rand(this);
+		}
 	private:
 		double randvalue;
 };
